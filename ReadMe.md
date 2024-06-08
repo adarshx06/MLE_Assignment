@@ -1,8 +1,29 @@
-In this implementation, we use the pre-trained BERT model as the transformer backbone to generate sentence embeddings. The choices made regarding the model architecture outside of the transformer backbone are:
+# Sentence Transformer with Multi-Task Learning
 
-Pooling Strategy: We use the mean pooling of the output embeddings across the sequence dimension (dim=1) to obtain a single fixed-length embedding for each sentence. This is a common approach to obtain sentence representations from transformer models like BERT.
-Rationale: Mean pooling is a simple and effective way to aggregate the sequence of output embeddings into a single vector representation while considering all token embeddings. It provides a good trade-off between computational complexity and performance for many downstream tasks.
-Input Representation: We use the pre-trained BERT tokenizer to tokenize the input sentences and handle padding and truncation as needed.
-Rationale: The BERT tokenizer is specifically designed for the BERT model and handles tokenization, padding, and truncation efficiently. Using the pre-trained tokenizer ensures that the input is properly processed and compatible with the pre-trained model weights.
-Output Representation: The sentence embeddings are directly obtained from the mean-pooled output embeddings of the transformer model, without any additional transformation or projection.
-Rationale: The output embeddings from the pre-trained BERT model are already highly informative and can be used directly for many downstream tasks without additional transformations. This simplifies the model architecture and reduces the number of trainable parameters.
+## Introduction
+
+This project implements a sentence transformer using PyTorch and the Hugging Face `transformers` library. The model is expanded to handle multi-task learning, including sentence classification and sentiment analysis. Additionally, layer-wise learning rates are implemented to enhance training.
+
+## Setup
+
+1. Clone the repository:
+
+   ```sh
+   git clone <repository-url>
+   cd sentence_transformer_project
+
+2. Create a virtual environment and activate it:
+
+python3 -m venv venv
+source venv/bin/activate
+
+3. Install the required packages:
+
+pip install -r requirements.txt
+
+Task 1: Sentence Transformer Implementation
+Run the sentence_transformer.py script to test the sentence transformer:
+python sentence_transformer.py
+
+Task 2: Multi-Task Learning Expansion
+The script also includes a multi-task learning expansion. It demonstrates both sentence classification and sentiment analysis.
