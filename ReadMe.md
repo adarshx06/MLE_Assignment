@@ -8,17 +8,17 @@ This project implements a sentence transformer using PyTorch and the Hugging Fac
 
 1. Create a virtual environment and activate it:
 
-```sh
+    ```sh
 python3 -m venv venv
 source venv/bin/activate
 
 2. Install the required packages:
 
-```sh
+    ```sh
 pip install -r requirements.txt
 
 3. Task 1: Sentence Transformer Implementation
-```sh
+    ```sh
 Run the sentence_transformer.py script to test the sentence transformer:
 python sentence_transformer.py
 
@@ -32,24 +32,22 @@ You can see the MLE_Fetch Notebook for Task 3 and Task 4.
 To package the project in a Docker container:
 Create a Dockerfile:
 
-```sh
+    ```sh
 FROM python:3.8-slim
-
 WORKDIR /app
-
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-
 COPY . .
-
 CMD ["python", "-m", "ipykernel_launcher", "-f", "{connection_file}"]
 
 7. Build the Docker image:
-```sh
+
+    ```sh
 docker build -t mleassigment .
 
 8. Run the Docker container:
-```sh
+
+    ```sh
 docker run -it --rm mleassigment
 
 Thank you!
