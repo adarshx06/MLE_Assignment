@@ -6,24 +6,50 @@ This project implements a sentence transformer using PyTorch and the Hugging Fac
 
 ## Setup
 
-1. Clone the repository:
+1. Create a virtual environment and activate it:
 
-   ```sh
-   git clone <repository-url>
-   cd sentence_transformer_project
-
-2. Create a virtual environment and activate it:
-
+```sh
 python3 -m venv venv
 source venv/bin/activate
 
-3. Install the required packages:
+2. Install the required packages:
 
+```sh
 pip install -r requirements.txt
 
-Task 1: Sentence Transformer Implementation
+3. Task 1: Sentence Transformer Implementation
+```sh
 Run the sentence_transformer.py script to test the sentence transformer:
 python sentence_transformer.py
 
-Task 2: Multi-Task Learning Expansion
-The script also includes a multi-task learning expansion. It demonstrates both sentence classification and sentiment analysis.
+4. Task 2: Multi-Task Learning Expansion
+The multitask_model.py includes a multi-task learning expansion. It demonstrates both sentence classification and sentiment analysis.
+
+5. Task 3 and Task 4:
+You can see the MLE_Fetch Notebook for Task 3 and Task 4.
+
+6. Docker Container
+To package the project in a Docker container:
+Create a Dockerfile:
+
+```sh
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["python", "-m", "ipykernel_launcher", "-f", "{connection_file}"]
+
+7. Build the Docker image:
+```sh
+docker build -t mleassigment .
+
+8. Run the Docker container:
+```sh
+docker run -it --rm mleassigment
+
+Thank you!
